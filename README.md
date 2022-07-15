@@ -4,13 +4,15 @@
 
 Docker image based on https://pypi.org/project/log-generator/ for mimicking any (depends on configured log format) service producing log messages.
 
-## Building
+Latest build: https://hub.docker.com/r/mkobus/log-generator
+
+## Build your own
 
 ```
 $ docker build -t log-generator .
 ```
 
-## Using
+## How to use it
 
 Using included `example-apache.yaml`:
 
@@ -19,7 +21,7 @@ $ docker run -d \
   -it \
   --name fake-apache \
   --mount type=bind,source="$(pwd)",target=/opt \
-  log-generator:latest /opt/example-apache.yaml
+  docker.io/mkobus/log-generator:latest /opt/example-apache.yaml
 f5044a1903a2ed285c61a12139838b35686b6c20d6e49c73760b2fbb0a759b73
 
 $ docker logs -f f5044a1903a2ed285c61a12139838b35686b6c20d6e49c73760b2fbb0a759b73
